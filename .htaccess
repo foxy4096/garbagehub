@@ -1,0 +1,10 @@
+ErrorDocument 404 /404.php
+
+RewriteEngine on
+
+# Ensure requested file is NOT a directory
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# If the file exists with a .php extension, rewrite the URL
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]

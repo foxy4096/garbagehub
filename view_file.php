@@ -33,15 +33,16 @@ if (!$commit) {
 
 $username = htmlspecialchars($commit["username"]);
 // Construct the uploads directory path
-$uploadsDir = "uploads/" . $username . "/" . $commit["repo_name"] . "/commits/" . $hash . "/";
+$uploadsDir = __DIR__ . "/uploads/" . $username . "/" . $commit["repo_name"] . "/commits/" . $hash . "/";
 // Ensure the uploads directory exists
 if (!file_exists($uploadsDir)) {
+    echo $uploadsDir . "<br>";
     die('Uploads directory does not exist.');
 }
 
 // Construct the full file path
 $fullFilePath = $uploadsDir . $filePath;
-echo $fullFilePath;
+echo $fullFilePath . "<br>";
 // Ensure the file exists
 if (!file_exists($fullFilePath)) {
     die('File does not exist.');

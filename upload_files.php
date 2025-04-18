@@ -1,8 +1,5 @@
 <?php
 
-echo json_encode($_FILES);
-
-exit;
 session_start();
 include "db.php";
 

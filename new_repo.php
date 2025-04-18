@@ -48,8 +48,81 @@ $db->close();
 <html>
 <head>
     <title>Create a Repo - GarbageHub</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c1dff0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #ff0000;
+            text-shadow: 2px 2px #000;
+        }
+
+        a {
+            color: #00ffff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: blink;
+            color: #ff00ff;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], textarea {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #00ff00;
+            color: #000;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: 2px solid #ff4500;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff00ff;
+            color: #000;
+        }
+        p {
+            font-size: 14px;
+            color: #555;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #e3f2fa;
+            border: 2px solid #6fa3c1;
+            border-radius: 10px;
+        }
+        </style>
 </head>
 <body>
+    <div class="container">
     <h1>Create Your Garbage Repository</h1>
 
     <?php if (isset($_SESSION["message"])): ?>
@@ -74,5 +147,6 @@ $db->close();
     </form>
 
     <p><a href="dashboard.php">Go back before it's too late</a></p>
+    </div>
 </body>
 </html>

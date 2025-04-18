@@ -31,6 +31,7 @@ body {
 nav {
     background-color: #333;
     padding: 10px;
+    width: 100%;
     border-bottom: 3px solid #666;
 }
 

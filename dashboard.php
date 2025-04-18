@@ -32,6 +32,7 @@ $db->close();
 </head>
 
 <body>
+    <p>Go to <a href="/">Home</a></p>
     <h1>Welcome to your dumpster fire, <?= htmlspecialchars($username) ?>.</h1>
     <img src="<?= htmlspecialchars($avatar) ?>" alt="your avatar" height="50" width="50">
     <br>
@@ -61,6 +62,8 @@ $db->close();
     <?php endif; ?>
 
     <p><a href="new_repo.php">🚀 Create New Repo (Because One Mess Isn't Enough)</a></p>
+    <p><a href="diff_str.php">
+        🛠️ Compare Code (Because You Can't Even)</a></p>
     <p><a href="logout.php">🚪 Logout (Finally came to your senses?)</a></p>
 </body>
 

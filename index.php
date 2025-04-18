@@ -1,4 +1,5 @@
 <?php
+session_start();
 $insults = [
     "Why are you here? This place is a dump.",
     "Welcome to GarbageHub, where bad code gets worse.",
@@ -36,8 +37,12 @@ $random_insult = $insults[array_rand($insults)];
     </ul>
 
     <h2>Get Started</h2>
+    <?php if (isset($_SESSION["user_id"])): ?>
+        <p>Welcome back, <?= htmlspecialchars($_SESSION["username"]) ?>! 
+        <a href="dashboard.php">Go to your dumpster fire.</a></p>
+    <?php else: ?>
     <p><a href="signup.php">Sign Up</a> or <a href="login.php">Log In</a> (Why? I have no idea.)</p>
-
+    <?php endif; ?>
     <footer>
         <p><strong>GarbageHub:</strong> "It is garbage, it is for the garbage, it is of the garbage."</p>
     </footer>

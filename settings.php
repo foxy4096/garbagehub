@@ -32,6 +32,7 @@ $stmt->close();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,79 +99,138 @@ $stmt->close();
         border-color: #343a40;
         box-shadow: none;
     }
-    
+
     body {
-        cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>💀</text></svg>") 16 0,auto; /*!emojicursor.app*/
-}
-
-
+        cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🤡</text></svg>") 16 0, auto;
+        /*!emojicursor.app*/
+    }
 </style>
+
 <body>
-    <div style="width: 100%; background: grey; margin: 0px 0;">
-    <div style="width: 99%; height: 10px; background: lime; animation: loading 10s infinite;"></div>
-</div>
-    
+    <!-- <div style="width: 100%; background: grey; margin: 0px 0;">
+        <div style="width: 99%; height: 10px; background: lime; animation: loading 10s infinite;"></div>
+    </div> -->
+
     <nav>
         <a href="index.php">Home</a>
         <a href="dashboard.php">Dashboard</a>
     </nav>
 
-<style>
-@keyframes loading {
-    0% { width: 0%; }
-    100% { width: 99%; }
-}
-</style>
+    <style>
+        @keyframes loading {
+            0% {
+                width: 0%;
+            }
+
+            100% {
+                width: 99%;
+            }
+        }
+    </style>
 
     <h1>Settings</h1>
-    
-    <img src="<?= htmlspecialchars($avatar) ?>" alt="Avatar" style="width: 80px; height: 80px; border-radius: 50%; animation: spin 5s linear infinite; margin: 10px;">
+
+    <!-- <img src="<?= htmlspecialchars($avatar) ?>" alt="Avatar" style="width: 80px; height: 80px; border-radius: 50%; animation: spin 5s linear infinite; margin: 10px;"> -->
     <p>Manage your account settings.</p>
-    <?php if($token): ?>
+    <?php if ($token): ?>
         <p>Your current token:
-        <strong class="token" id="slow-token"></strong></p>
+            <strong class="token" id="slow-token"></strong>
+        </p>
         <p>WARNING: THIS TOKEN CANNOT BE REVOKED</p>
 
-    </p>
+        </p>
     <?php else: ?>
         <p>You don't have a token yet. Generate one below.</p>
-    <button 
-        onclick="window.location.href='gen_token.php'"
-        style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer;">
-        Generate Token
-    </button>
+        <button
+            onclick="window.location.href='gen_token.php'"
+            style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer;">
+            Generate Token
+        </button>
     <?php endif; ?>
-        <!-- what else can we add? -->
-        <button onclick='window.open("https:\//www.youtube.com/watch?v=dQw4w9WgXcQ")'
-        style="background: black; color: lime; font-family: monospace;">
-    Panic
-</button>
-<style>
-    @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
+    <style>
+        @keyframes nyan-cat {
+            0% {
+                background-color: #ff69b4;
+            }
 
-</style>
+            25% {
+                background-color: #ff4500;
+            }
+
+            50% {
+                background-color: #ffd700;
+            }
+
+            75% {
+                background-color: #32cd32;
+            }
+
+            100% {
+                background-color: #1e90ff;
+            }
+        }
+    </style>
+    <!-- what else can we add? -->
+    <button onclick='window.open("https:\//www.youtube.com/watch?v=dQw4w9WgXcQ")'
+        style='
+        background-color: #ff69b4; 
+        color: white; 
+        padding: 10px 20px; 
+        border: none; 
+        cursor: pointer; 
+        font-family: "Comic Sans MS", cursive, sans-serif; 
+        animation: nyan-cat 1s infinite alternate;
+
+        
+        '>
+        Panic
+    </button>
+    <style>
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 
     <p><a href="index.php">Home</a></p>
     <p><a href="edit_profile.php">Edit Profile</a></p>
     <p><a href="logout.php">Logout</a></p>
+    <div style="display: flex; justify-content: space-between; margin: 10px;">
+        <div style="flex: 1; margin-right: 10px; padding: 10px; border: 1px solid #ccc; background-color: #f8f9fa;">
+            <p>If you need help, contact our <a href="support.php">Support Team</a>.</p>
+        </div>
+        <div style="flex: 1; margin-left: 10px; padding: 10px; border: 1px solid #ccc; background-color: #f8f9fa;">
+            <p>Want to learn more? Visit our <a href="faq.php">FAQ</a> page.</p>
+        </div>
+    </div>
+    <div style="text-align: center; margin: 20px;">
+        <p>Want to delete your account? This action is irreversible.</p>
+        <form action="delete_account.php" method="POST" onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
+            <button type="submit" style="background-color: red; color: white; padding: 10px 20px; border: none; cursor: pointer;">
+                Delete Account
+            </button>
+        </form>
+    </div>
     <script>
-const token = "<?= htmlspecialchars($token['token'] ?? '') ?>";
-let revealed = "";
-let i = 0;
+        const token = "<?= htmlspecialchars($token['token'] ?? '') ?>";
+        let revealed = "";
+        let i = 0;
 
-function revealToken() {
-    if (i < token.length) {
-        revealed += token[i];
-        document.getElementById("slow-token").textContent = revealed + "_";
-        i++;
-        setTimeout(revealToken, 200);
-    }
-}
-window.onload = revealToken;
-
-</script>
+        function revealToken() {
+            if (i < token.length) {
+                revealed += token[i];
+                document.getElementById("slow-token").textContent = revealed + "_";
+                i++;
+                setTimeout(revealToken, 200);
+            }
+        }
+        window.onload = revealToken;
+    </script>
 </body>
+
 </html>

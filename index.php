@@ -145,6 +145,25 @@ You write crimes against programming, we store them.</p>
     <input type="checkbox" onclick="document.body.style.transform='rotate(180deg)';">
     Invert Despair
 </label>
+<br>
+<br>
+<a href="tools.php">
+    <button style="
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    ">
+        Tools
+    </button>
+</a>
+<p><strong>⚠ Server Room Temperature:</strong> <?= rand(70, 120) ?>°C – Dangerously unstable.</p>
+
 
 </main>
 <footer>

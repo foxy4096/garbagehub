@@ -32,6 +32,11 @@ $db->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        /* Make hover effects sketchy */
+        a:hover {
+            transition: color 0.1s steps(5, end);
+            color: #ff4500;
+        }
         body {
             font-family: "Comic Sans MS", cursive, sans-serif;
             background-color: #000;
@@ -92,7 +97,7 @@ $db->close();
 
 <body>
     <div class="container">
-
+        
         <p>Go to <a href="/">Home</a></p>
         <h1>Welcome to your dumpster fire, <?= htmlspecialchars($username) ?>.</h1>
     <img src="<?= htmlspecialchars($avatar) ?>" alt="your avatar" height="50" width="50">
